@@ -94,7 +94,11 @@ class Encoder {
 
     // json data
     if (null != obj['data']) {
-      str += json.encode(obj['data']);
+      if (obj['data'] is List) {
+        // Invalid type of data
+      } else {
+        str += json.encode(obj['data']);
+      }
     }
 
     _logger.fine('encoded $obj as $str');
